@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6287583949431866"
+     crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="https://dailygibberish.com/favicon.png"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Gibberish</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- New fade-wrapper for fade-in animation -->
+    <div class="fade-wrapper">
+        <div class="pencil-button" onclick="toggleFormPanel()">
+            <img src="submission.png" alt="Pencil Icon">
+        </div>
+        
+        <!-- Form Panel -->
+        <div id="form-panel" class="form-panel">
+            <div class="modal-content">
+                <span class="close-button" onclick="toggleFormPanel()">&times;</span>
+                <h2>Submit Your Own Gibberish!</h2>
+                <form id="gibberish-form" name="gibberish-submission" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="gibberish-submission">
+                
+                    <!-- Gibberish Phrase Box -->
+                    <input type="text" id="new-question" name="new-question" required placeholder="Gibberish Phrase">
+                
+                    <!-- Real Answer Box -->
+                    <input type="text" id="new-answer" name="new-answer" required placeholder="Real Answer">
+                
+                    <button class="btn" type="submit">Submit</button>
+                </form>
+                
+                <!-- Success message -->
+                <p id="form-status" style="color:green; display:none;">Form submitted successfully!</p>                   
+            </div>
+        </div>
+        
+        <!-- Help Button -->
+        <div class="help-button" onclick="toggleHelpModal()">?</div>
+
+        <!-- Game wrapper -->
+        <div class="wrapper" id="wrapper">
+            <!-- Game container for the main guessing interface -->
+            <div class="container" id="game-container">
+                <div class="white-box">
+                    <h1>Guess today's gibberish!</h1>
+                    <p id="gibberish-text">Loading today's gibberish...</p>
+                    <p id="word-count">(1 words)</p>
+                    <input type="text" id="user-guess" placeholder="Type your guess here">
+                    <p id="par">Par: 2</p> <!-- Display the calculated "Par" here -->
+                    <p id="revealed-letters"></p> <!-- Revealed letters displayed here -->
+                    <div class="buttons">
+                        <button class="btn" onclick="checkGuess()">Submit</button>
+                        <button class="btn" onclick="revealLetter()">Reveal a Letter</button>
+                    </div>
+                    <p id="feedback"></p>
+                    <div id="timer">Time: <span id="time">0</span> seconds</div>
+                    <div id="logo-container">
+                        <img id="logo" src="logo.png" alt="Logo">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result screen container -->
+            <div class="container" id="result-screen">
+                <div class="white-box">
+                    <h2 id="result-text">Well Done!</h2> <!-- Dynamic result message -->
+                    <p>My time was:</p>
+                    <p id="result-time"></p> <!-- Time display -->
+                    <p id="result-hints"></p> <!-- Display number of hints and performance level -->
+                    <button id="result-share" onclick="copyToClipboard()">Share your result!</button>
+                    <p id="copied-message" style="display:none; color:green;">Copied!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Modal -->
+        <div id="help-modal" class="help-modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="toggleHelpModal()">&times;</span>
+                <h2>How to Play Guess the Gibberish</h2>
+                <p>You will be presented with a gibberish phrase of a well-known word or phrase when sounded out (American English). Guess the correct phrase by typing it into the input box!</p> 
+                <p>You can reveal hints by clicking the "Reveal a Letter" button. The fewer hints you take, the better your score!</p>
+                <p><strong>Tip:</strong> Try saying the word very fast out loud!</p>
+            </div>
+        </div>
+        <img src="logo.png" alt="Logo" id="logo">
+    </div> <!-- End of fade-wrapper -->
+
+    <script src="app.js"></script>
+</body>
+</html>

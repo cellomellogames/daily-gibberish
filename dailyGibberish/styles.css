@@ -1,0 +1,349 @@
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: repeating-linear-gradient(
+        45deg, /* Angle of the stripes */
+        #ADD4D9,
+        #ADD4D9 10px, /* First color and its spacing */
+        #DCEEF2 10px, /* Second color starts here */
+        #DCEEF2 20px /* Define the stripe width */
+    );
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling outside the transition */
+}
+
+
+/* Wrapper for the transition effect */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 200vh; /* Full height for both screens */
+    transition: transform 2s ease-in-out; /* Smooth scroll transition */
+    width: 100%; /* Full width to ensure it occupies the viewport */
+}
+
+/* Container for each screen */
+.container {
+    height: 100vh; /* Each screen takes up the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjusting the position of the result screen */
+#result-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 80px; /* Move the result box lower */
+}
+
+/* The white content box within the container */
+.white-box {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow under the white box */
+    max-width: 600px; /* Increase the width */
+    height: auto; /* Adjust height dynamically */
+    width: 90%; /* Responsive width */
+    text-align: center;
+}
+
+/* Adjust h1 font size to ensure it fits on one line */
+h1 {
+    font-size: 48px;
+    font-family: 'Baloo Da 2'; /* Use Baloo Da 2 for bold, strong, and curvy effect */
+    color: #333;
+    margin-bottom: 20px;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+
+input {
+    margin-top: 20px;
+    padding: 15px;
+    width: 80%; /* Reduce the width of the input box */
+    border-radius: 8px;
+    border: 3px solid #000; /* Black outline */
+    font-size: 18px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Center the input box */
+    text-align: center; /* Align text inside the input to the center */
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Add space between buttons */
+}
+
+.btn {
+    padding: 20px 35px; /* Increase button size */
+    background-color: #F2865E;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px; /* Increase font size */
+    cursor: pointer;
+    box-shadow: 0 4px #d16b4c; /* Darker orange shadow for popping effect */
+    border: none; /* Remove black outline */
+}
+
+.btn:hover {
+    background-color: #e0744d;
+    box-shadow: 0 6px #c65e3f; /* Darker shadow on hover */
+}
+
+/* Feedback and timer */
+#feedback {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+#timer {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#revealed-letters {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Result Screen Styling */
+#result-time {
+    font-size: 48px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #333;
+    margin: 20px 0;
+}
+
+#result-hints {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    color: #666;
+}
+
+#result-share {
+    padding: 20px 35px; /* Increase button size */
+    background-color: #F2865E;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px; /* Increase font size */
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 4px #d16b4c; /* Darker orange shadow for popping effect */
+    border: none; /* Remove black outline */
+}
+
+#result-share:hover {
+    background-color: #e0744d;
+    box-shadow: 0 6px #c65e3f; /* Darker shadow on hover */
+}
+
+@keyframes shake {
+    0% { transform: translate(3px, 3px); }
+    25% { transform: translate(-3px, -3px); }
+    50% { transform: translate(4px, -4px); }
+    75% { transform: translate(-4px, 4px); }
+    100% { transform: translate(3px, 3px); }
+}
+
+#game-container.shake {
+    animation: shake 0.5s; /* Apply the shake animation */
+}
+
+/* Help button styling */
+.help-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #F2865E;
+    color: white;
+    border-radius: 50%;
+    width: 60px; /* Increased size */
+    height: 60px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    box-shadow: 0 4px #d16b4c;
+}
+
+.help-button:hover {
+    background-color: #e0744d;
+}
+
+/* Modal styling */
+.help-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensure it appears on top of other elements */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto; /* Center it vertically */
+    padding: 30px;
+    border-radius: 10px;
+    width: 40%; /* Adjust the width */
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: darkred;
+}
+
+/* Logo Styling */
+#logo {
+    position: relative; /* Make it relative to the white box */
+    width: 200px; /* Adjust the size of the logo */
+    height: auto;
+    margin-top: 20px; /* Add space between logo and the content above */
+    display: block; /* Make it a block element for centering */
+    margin-left: auto;
+    margin-right: auto; /* Center the logo horizontally */
+}
+
+/* Text next to the logo */
+#logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px; /* Space above the text */
+    text-align: right; /* Align text to the right */
+}
+
+
+/* Pencil Button Styling */
+.pencil-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #F2865E;
+    border-radius: 50%;
+    width: 70px; /* Increase size of button */
+    height: 70px; /* Increase size of button */
+    cursor: pointer;
+    text-align: center;
+    display: flex; /* Center content */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    box-shadow: 0 4px #d16b4c; /* Add shading to give depth */
+    z-index: 1000; /* Ensure it appears on top */
+}
+
+.pencil-button img {
+    width: 35px; /* Make the pencil larger to fit the button */
+    height: auto;
+}
+
+/* Form Panel Styling */
+.form-panel, .help-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Ensure it appears on top of other elements */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background */
+}
+
+.form-panel .modal-content, .help-modal .modal-content {
+    background-color: white;
+    margin: 10% auto; /* More space above and below */
+    padding: 30px; /* Increase padding */
+    border-radius: 10px;
+    width: 40%; /* Make the panel narrower */
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Bigger shadow */
+}
+
+input[type="text"] {
+    margin-top: 20px;
+    padding: 15px;
+    width: 90%; /* Wider input boxes */
+    border-radius: 8px;
+    border: 2px solid #ccc; /* Softer border */
+    font-size: 18px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 15px 35px;
+    background-color: #F2865E;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px #d16b4c;
+    border: none;
+}
+
+/* Keep buttons fully visible but disable interaction when a panel is open */
+.panel-open .pencil-button, .panel-open .help-button {
+    pointer-events: none; /* Disable clicks but keep them fully visible */
+}
+/* Define fade-in keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply fade-in animation to the outer fade-wrapper */
+.fade-wrapper {
+    opacity: 0;
+    animation: fadeIn 0.7s ease-out forwards; /* Adjust timing as needed */
+}
+
+/* Add dark border color to input fields */
+input[type="text"] {
+    border: 2px solid #333; /* Same color as the heading font */
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    width: 80%;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+/* Dark outline focus state for better visibility */
+input[type="text"]:focus {
+    border-color: #111; /* Slightly darker shade on focus */
+}
